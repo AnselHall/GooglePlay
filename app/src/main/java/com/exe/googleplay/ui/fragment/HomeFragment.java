@@ -1,5 +1,6 @@
 package com.exe.googleplay.ui.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ public class HomeFragment extends Fragment {
 
         TextView textView = new TextView(getActivity());
         textView.setText(this.getClass().getSimpleName());
+        textView.setTextColor(Color.RED);
+        textView.setTextSize(40.0f);
 
         return textView;
     }

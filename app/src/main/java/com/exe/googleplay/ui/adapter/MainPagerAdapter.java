@@ -3,9 +3,9 @@ package com.exe.googleplay.ui.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.view.View;
 
 import com.exe.googleplay.R;
+import com.exe.googleplay.ui.fragment.FragmentFactory;
 import com.exe.googleplay.util.CommonUtil;
 
 /**
@@ -27,11 +27,12 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        return FragmentFactory.createFragment(position);
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return false;
+    public CharSequence getPageTitle(int position) {
+        return tabs[position];
     }
+
 }
