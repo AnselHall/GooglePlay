@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * Created by user on 2016/2/18.
  */
@@ -17,6 +19,9 @@ public class GooglePlayApplication extends Application {
 
         mContext = this;
         mainHandler = new Handler();
+        // 初始化 Bmob SDK
+        // 使用时请将第二个参数Application ID替换成你在Bmob服务器端创建的Application ID
+        Bmob.initialize(this, "55e436a3761f8b7d4d314f95e129e392");
     }
 
     /**
