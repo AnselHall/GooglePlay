@@ -18,6 +18,7 @@ public class CategoryFragment extends BaseFragment{
 
     @Override
     protected Object loadData() {
+//        String url = Url.C
         return null;
     }
 }

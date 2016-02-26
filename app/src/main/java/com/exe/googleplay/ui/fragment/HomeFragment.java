@@ -99,6 +99,7 @@ public class HomeFragment extends BaseFragment {
         String result = HttpHelper.get(url);
 //        Home home = parseHome(result);
 //        Gson gson = new Gson();
+
 //        Home home = gson.fromJson(result, Home.class);
         home = JsonUtil.parseJsonToBean(result, Home.class);
         if (home != null) {
@@ -114,6 +115,7 @@ public class HomeFragment extends BaseFragment {
 
                     appInfoList.addAll(home.getList());
                     homeAdapter.notifyDataSetChanged();
+                    ptr_listview.onRefreshComplete();
                 }
             });
         }
