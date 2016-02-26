@@ -20,12 +20,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.exe.googleplay.lib.pagerslidingtab.PagerSlidingTab
+        <com.exe.googleplay.libs.pageslidingtab.PagerSlidingTab
             android:id="@+id/pst_slidingtab"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-        </com.exe.googleplay.lib.pagerslidingtab.PagerSlidingTab>
+        </com.exe.googleplay.libs.pageslidingtab.PagerSlidingTab>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/vp_viewpager"

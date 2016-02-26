@@ -1,5 +1,6 @@
 package com.exe.googleplay.ui.fragment;
 
+import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ListView;
@@ -10,6 +11,7 @@ import com.exe.googleplay.bean.Home;
 import com.exe.googleplay.http.HttpHelper;
 import com.exe.googleplay.http.Url;
 import com.exe.googleplay.ui.adapter.HomeAdapter;
+import com.exe.googleplay.ui.adapter.HomeHeaderAdapter;
 import com.exe.googleplay.util.CommonUtil;
 import com.exe.googleplay.util.JsonUtil;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -29,8 +31,12 @@ public class HomeFragment extends BaseFragment {
     private Home home;
     private PullToRefreshListView ptr_listview;
     private ListView listview;
-    private ArrayList<AppInfo> appInfoList;
+    private ArrayList<AppInfo> appInfoList = new ArrayList<>();
+    private ArrayList<String> picList = new ArrayList<>();
+    ;
     private HomeAdapter homeAdapter;
+    private ViewPager header_view_pager;
+    private HomeHeaderAdapter homeHeaderAdapter;
 
     @Override
     protected View loadSuccessView() {
@@ -39,7 +45,12 @@ public class HomeFragment extends BaseFragment {
         ptr_listview.setMode(PullToRefreshBase.Mode.BOTH);
 
         listview = ptr_listview.getRefreshableView();
-        appInfoList = new ArrayList<>();
+        View home_header = View.inflate(getContext(), R.layout.home_header, null);
+        header_view_pager = (ViewPager) home_header.findViewById(R.id.view_pager);
+        //动态设置VIewPager的高度
+        calculateViewPagerHeight();
+        listview.addHeaderView(home_header);
+
         homeAdapter = new HomeAdapter(getContext(), appInfoList);
         listview.setAdapter(homeAdapter);
 
@@ -53,10 +64,32 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onRefresh(PullToRefreshBase<ListView> refreshView) {
                 if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
-
+                    //上拉
+                    contentPage.loadDataAndRefreshView();
+                } else {
+                    //下拉刷新
+                    CommonUtil.runOnUIThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            contentPage.loadDataAndRefreshView();
+                            ptr_listview.onRefreshComplete();
+                        }
+                    });
                 }
             }
         });
+    }
+
+    /**
+     * 根据图片的宽高比动态设置viewpager的高度
+     */
+    private void calculateViewPagerHeight(){
+        int width = getActivity().getWindowManager().getDefaultDisplay().getWidth();//获取ViewPager的宽
+        //根据宽高比2.65来求出对应的高 width/height = 2.65
+        float height = width/2.65f;
+        //给VIewPager重新设置高度
+        header_view_pager.getLayoutParams().height = (int) height;
+        header_view_pager.requestLayout();
     }
 
     @Override
@@ -68,14 +101,22 @@ public class HomeFragment extends BaseFragment {
 //        Gson gson = new Gson();
 //        Home home = gson.fromJson(result, Home.class);
         home = JsonUtil.parseJsonToBean(result, Home.class);
+        if (home != null) {
 
-        CommonUtil.runOnUIThread(new Runnable() {
-            @Override
-            public void run() {
-                appInfoList.addAll(home.getList());
-                homeAdapter.notifyDataSetChanged();
-            }
-        });
+            CommonUtil.runOnUIThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (home.getPicture() != null && home.getPicture().size() > 0) {
+                        picList.addAll(home.getPicture());
+                        homeHeaderAdapter = new HomeHeaderAdapter(picList);
+                        header_view_pager.setAdapter(homeHeaderAdapter);
+                    }
+
+                    appInfoList.addAll(home.getList());
+                    homeAdapter.notifyDataSetChanged();
+                }
+            });
+        }
         return home;
     }
 

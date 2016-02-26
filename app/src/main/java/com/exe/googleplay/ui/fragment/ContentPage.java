@@ -90,7 +90,7 @@ public abstract class ContentPage extends FrameLayout {
         loadDataAndRefreshView();
     }
 
-    private void loadDataAndRefreshView() {
+    public void loadDataAndRefreshView() {
         //使用简单的线程池执行请求任务，单线程池，防止划几个Fragment，就请求几次数据
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable() {

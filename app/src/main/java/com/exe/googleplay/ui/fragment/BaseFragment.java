@@ -12,7 +12,7 @@ import com.exe.googleplay.util.LogUtil;
  * Fragment的基类，完成加载数据，显示View功能
  */
 public abstract class BaseFragment extends Fragment {
-    private ContentPage contentPage;
+    protected ContentPage contentPage;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (contentPage == null) {

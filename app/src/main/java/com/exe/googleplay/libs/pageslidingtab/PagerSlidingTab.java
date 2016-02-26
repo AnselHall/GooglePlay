@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.exe.googleplay.lib.pagerslidingtab;
+package com.exe.googleplay.libs.pageslidingtab;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -40,7 +40,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.exe.googleplay.R;
-import com.exe.googleplay.global.GooglePlayApplication;
 
 import java.util.Locale;
 

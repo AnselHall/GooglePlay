@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.exe.googleplay.R;
-import com.exe.googleplay.lib.pagerslidingtab.PagerSlidingTab;
+import com.exe.googleplay.libs.pageslidingtab.PagerSlidingTab;
 import com.exe.googleplay.ui.adapter.MainPagerAdapter;
 
 public class MainActivity extends ActionBarActivity {
