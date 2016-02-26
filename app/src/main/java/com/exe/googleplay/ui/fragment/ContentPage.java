@@ -78,6 +78,7 @@ public abstract class ContentPage extends FrameLayout {
             successView = createSuccessView();
         }
         if (successView != null) {
+            CommonUtil.removeSelfFromParent(successView);
             addView(successView, params);
         } else {
             throw new IllegalArgumentException("The Method createSuccessView() can not return null");
@@ -129,7 +130,6 @@ public abstract class ContentPage extends FrameLayout {
         return mState;
     }
 
-
     private void showPage() {
         loadingView.setVisibility(mState == PageState.STATE_LOADING ? VISIBLE : GONE);
         emptyView.setVisibility(mState == PageState.STATE_EMPTY ? VISIBLE : GONE);
@@ -140,12 +140,14 @@ public abstract class ContentPage extends FrameLayout {
     /**
      * 由于每个界面的SuccessView都不同，应给由每个界面具体去实现
      *
-     * @return
+     * @return 创建成功的View
      */
     protected abstract View createSuccessView();
 
     /**
-     * @return
+     * 请求数据
+     *
+     * @return 请求到的数据
      */
     protected abstract Object loadData();
 }

@@ -8,6 +8,9 @@ import com.exe.googleplay.R;
 import com.exe.googleplay.bean.AppInfo;
 import com.exe.googleplay.bean.Home;
 import com.exe.googleplay.http.HttpHelper;
+import com.exe.googleplay.http.Url;
+import com.exe.googleplay.ui.adapter.HomeAdapter;
+import com.exe.googleplay.util.CommonUtil;
 import com.exe.googleplay.util.JsonUtil;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -26,6 +29,8 @@ public class HomeFragment extends BaseFragment {
     private Home home;
     private PullToRefreshListView ptr_listview;
     private ListView listview;
+    private ArrayList<AppInfo> appInfoList;
+    private HomeAdapter homeAdapter;
 
     @Override
     protected View loadSuccessView() {
@@ -34,22 +39,43 @@ public class HomeFragment extends BaseFragment {
         ptr_listview.setMode(PullToRefreshBase.Mode.BOTH);
 
         listview = ptr_listview.getRefreshableView();
-//        listview.setAdapter(new HomeAdapter());
+        appInfoList = new ArrayList<>();
+        homeAdapter = new HomeAdapter(getContext(), appInfoList);
+        listview.setAdapter(homeAdapter);
 
+        registerListener();
 
         return ptr_listview;
+    }
+
+    private void registerListener() {
+        ptr_listview.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
+            @Override
+            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+                if (refreshView.getCurrentMode() == PullToRefreshBase.Mode.PULL_FROM_END) {
+
+                }
+            }
+        });
     }
 
     @Override
     protected Object loadData() {
 //        final String url = "http://127.0.0.1:8090/home?index=0";
-        final String url = "http://192.168.79.201:8080/homelist0";
+        final String url = Url.HOME;
         String result = HttpHelper.get(url);
 //        Home home = parseHome(result);
 //        Gson gson = new Gson();
 //        Home home = gson.fromJson(result, Home.class);
         home = JsonUtil.parseJsonToBean(result, Home.class);
 
+        CommonUtil.runOnUIThread(new Runnable() {
+            @Override
+            public void run() {
+                appInfoList.addAll(home.getList());
+                homeAdapter.notifyDataSetChanged();
+            }
+        });
         return home;
     }
 
@@ -93,6 +119,4 @@ public class HomeFragment extends BaseFragment {
         }
         return home;
     }
-
-
 }

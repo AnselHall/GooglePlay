@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">GooglePlay</string>
+    <string name="app_name">GooglePlay1</string>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="category_game">游戏</string>
     <string name="category_app">应用</string>
     <string name="recommend_toast">您选择的关键词是：</string>
-    <string name="load_more">加载中...</string>
+    <string name="load_more">加载中…</string>
     <string name="load_error">加载失败,点击重试</string>
     <string name="app_detail">应用详情</string>
     <string name="app_detail_download">下载：</string>

@@ -1,6 +1,9 @@
 package com.exe.googleplay.util;
 
 import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 
 import com.exe.googleplay.global.GooglePlayApplication;
 
@@ -44,5 +47,17 @@ public class CommonUtil {
         return GooglePlayApplication.getContext().getResources().getStringArray(id);
     }
 
-//    public static String[] getStringArray
+    /**
+     * 将view从父view中移除
+     * @param view
+     */
+    public static void removeSelfFromParent(View view) {
+        if(view!=null){
+            ViewParent parent = view.getParent();
+            if(parent instanceof ViewGroup){
+                ViewGroup group = (ViewGroup) parent;
+                group.removeView(view);
+            }
+        }
+    }
 }

@@ -1,99 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/selector_list_item"
-        android:layout_marginBottom="3dp"
-         android:padding="10dp"
-        android:orientation="vertical" >
-        
-        <LinearLayout android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            
-            <ImageView android:layout_width="55dp"
-                android:src="@drawable/ic_default"
-                android:scaleType="fitXY"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
                 android:id="@+id/iv_icon"
-                android:layout_height="55dp"/>
-            
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_default"/>
+
             <!-- app信息区域 -->
-            <LinearLayout android:layout_width="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="65dp"
                 android:layout_marginLeft="5dp"
+                android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:layout_height="55dp">
-                
-                <TextView android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:id="@+id/tv_name"
-                    android:textColor="@color/txt_title"
-                    android:text="有缘网"/>
-                
-                <RatingBar android:layout_width="wrap_content"
-                    android:progressDrawable="@drawable/ratingbar_progress"
-                    style="@android:style/Widget.RatingBar"
-                    android:id="@+id/rb_stars"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_height="14dp"/>
-                
-                 <TextView android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:id="@+id/tv_size"
-                    android:textColor="@color/txt_small"
-                    android:text="3.4M"/>
-                
-            </LinearLayout>
-            
-            <!-- 下载区域 -->
-            <LinearLayout android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_marginRight="10dp"
                 android:orientation="vertical">
-                
-                <FrameLayout android:layout_width="wrap_content"
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/download_progress"></FrameLayout>
-                
-                 <TextView android:layout_width="wrap_content"
+                    android:text="有缘网"
+                    android:textColor="@color/txt_title"
+                    android:textSize="16sp"/>
+
+                <RatingBar
+                    android:id="@+id/rb_stars"
+                    style="@android:style/Widget.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:progressDrawable="@drawable/ratingbar_progress"/>
+
+                <TextView
+                    android:id="@+id/tv_size"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:id="@+id/download_state"
+                    android:text="3.4M"
                     android:textColor="@color/txt_small"
-                    />
-                
+                    android:textSize="13sp"/>
+
             </LinearLayout>
-            
+
+            <!-- 下载区域 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/download_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/download_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_small"
+                    android:textSize="12sp"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
-        
+
         <!-- 分割线 -->
-        <View  android:layout_width="match_parent"
-            android:background="#33666666"
-            android:layout_marginTop="8dp"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
             android:layout_marginBottom="8dp"
-            android:layout_height="1px"/>
-        
-        <TextView android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#33666666"/>
+
+        <TextView
             android:id="@+id/tv_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="阿达撒的撒的撒的撒a"
             android:textColor="@color/txt_small"
             android:textSize="15sp"
-            android:singleLine="true"
             />
-        
+
     </LinearLayout>
 
 </RelativeLayout>

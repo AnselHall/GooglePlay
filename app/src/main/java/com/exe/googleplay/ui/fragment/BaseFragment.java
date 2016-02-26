@@ -13,12 +13,12 @@ import com.exe.googleplay.util.LogUtil;
  */
 public abstract class BaseFragment extends Fragment {
     private ContentPage contentPage;
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (contentPage == null) {
-            contentPage = new ContentPage(getActivity()) {
+            contentPage = new ContentPage(getContext()) {
                 @Override
                 protected View createSuccessView() {
-
                     return loadSuccessView();
                 }
 
