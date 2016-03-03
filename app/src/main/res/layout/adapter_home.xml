@@ -17,8 +17,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/iv_icon"
@@ -51,6 +51,7 @@
                     android:layout_height="16dp"
                     android:layout_marginBottom="2dp"
                     android:layout_marginTop="2dp"
+                    android:isIndicator="true"
                     android:progressDrawable="@drawable/ratingbar_progress"/>
 
                 <TextView
@@ -66,15 +67,16 @@
             <!-- 下载区域 -->
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_marginRight="10dp"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <FrameLayout
-                    android:id="@+id/download_progress"
+                    android:id="@+id/download_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
 
                 </FrameLayout>
 
@@ -82,6 +84,7 @@
                     android:id="@+id/download_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
                     android:textColor="@color/txt_small"
                     android:textSize="12sp"
                     />

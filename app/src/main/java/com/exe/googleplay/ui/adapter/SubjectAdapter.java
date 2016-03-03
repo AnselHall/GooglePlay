@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  *
  */
-public class SubjectAdapter extends BaseAdapter<Subject> {
+public class SubjectAdapter extends BasicAdapter<Subject> {
     private Context context;
     private ArrayList<Subject> list;
 

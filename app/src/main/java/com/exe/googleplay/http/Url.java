@@ -17,8 +17,14 @@ public class Url {
 
     public static String RECOMMEND = HOST + "/app/recommend";
 
-    public static String CATEGORY = HOST + "googleplay/app/category";
-    
-    public static String HOT = HOST + "googleplay/app/hot";
+    public static String CATEGORY = HOST + "app/category";
 
+    public static String HOT = HOST + "app/hot";
+
+    //http://192.168.79.201:8080/googleplay/app/com.youyuan.yyhl/com.youyuan.yyhl  详情页
+    public static String DETAIL = HOST + "app/";
+
+    public static final String DOWNLOAD = HOST + "app/";
+
+    public static final String BREAK_DOWNLOAD = HOST + "";
 }

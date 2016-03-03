@@ -1,5 +1,7 @@
 package com.exe.googleplay.bean;
 
+import java.util.ArrayList;
+
 /**
  * Created by user on 2016/2/24.
  */
@@ -12,6 +14,61 @@ public class AppInfo {
     private long size;
     private String downloadUrl;
     private String des;
+    private String downloadNum;//下载数量
+    private String version;//当前版本
+    private String date;//上传日期
+    private String author;//作者
+
+    public String getDownloadNum() {
+        return downloadNum;
+    }
+
+    public void setDownloadNum(String downloadNum) {
+        this.downloadNum = downloadNum;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public ArrayList<String> getScreen() {
+        return screen;
+    }
+
+    public void setScreen(ArrayList<String> screen) {
+        this.screen = screen;
+    }
+
+    public ArrayList<SafeInfo> getSafe() {
+        return safe;
+    }
+
+    public void setSafe(ArrayList<SafeInfo> safe) {
+        this.safe = safe;
+    }
+
+    private ArrayList<String> screen;//app截图
+    private ArrayList<SafeInfo> safe;//安全描述
 
     public int getId() {
         return id;

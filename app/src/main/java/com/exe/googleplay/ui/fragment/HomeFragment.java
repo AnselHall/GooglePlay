@@ -1,8 +1,10 @@
 package com.exe.googleplay.ui.fragment;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.exe.googleplay.R;
@@ -10,10 +12,12 @@ import com.exe.googleplay.bean.AppInfo;
 import com.exe.googleplay.bean.Home;
 import com.exe.googleplay.http.HttpHelper;
 import com.exe.googleplay.http.Url;
+import com.exe.googleplay.ui.activity.AppDetailActivity;
 import com.exe.googleplay.ui.adapter.HomeAdapter;
 import com.exe.googleplay.ui.adapter.HomeHeaderAdapter;
 import com.exe.googleplay.util.CommonUtil;
 import com.exe.googleplay.util.JsonUtil;
+import com.exe.googleplay.util.LogUtil;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
@@ -78,15 +82,27 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent intent = new Intent(getActivity(), AppDetailActivity.class);
+                intent.putExtra("packageName", appInfoList.get(position - 2).getPackageName());
+                LogUtil.e("packageName  :", appInfoList.get(position - 2).getPackageName());
+                LogUtil.e("position    :", position + "");
+                startActivity(intent);
+            }
+        });
     }
 
     /**
      * 根据图片的宽高比动态设置viewpager的高度
      */
-    private void calculateViewPagerHeight(){
+    private void calculateViewPagerHeight() {
         int width = getActivity().getWindowManager().getDefaultDisplay().getWidth();//获取ViewPager的宽
         //根据宽高比2.65来求出对应的高 width/height = 2.65
-        float height = width/2.65f;
+        float height = width / 2.65f;
         //给VIewPager重新设置高度
         header_view_pager.getLayoutParams().height = (int) height;
         header_view_pager.requestLayout();

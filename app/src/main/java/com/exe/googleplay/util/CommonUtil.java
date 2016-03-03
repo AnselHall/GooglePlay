@@ -60,4 +60,13 @@ public class CommonUtil {
             }
         }
     }
+
+    /**
+     * 获取dimens资源
+     * @param id
+     * @return
+     */
+    public static float getDimens(int id){
+        return GooglePlayApplication.getContext().getResources().getDimension(id);
+    }
 }

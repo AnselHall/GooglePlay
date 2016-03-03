@@ -9,11 +9,11 @@ import java.util.ArrayList;
 /**
  *
  */
-public class BaseAdapter<T> extends android.widget.BaseAdapter {
+public class BasicAdapter<T> extends android.widget.BaseAdapter {
     private Context context;
     private ArrayList<T> list;
 
-    public BaseAdapter(Context context, ArrayList<T> list) {
+    public BasicAdapter(Context context, ArrayList<T> list) {
         this.context = context;
         this.list = list;
     }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 /**
  *
  */
-public class AppAdapter extends BaseAdapter<AppInfo> {
+public class AppAdapter extends BasicAdapter<AppInfo> {
 
     private Context context;
     private ArrayList<AppInfo> list;

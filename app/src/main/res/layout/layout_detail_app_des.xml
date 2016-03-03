@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:id="@+id/ll_app_des"
+    android:layout_marginRight="5dp"
+    android:background="@drawable/list_item_bg_normal"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="简介"
+        android:textColor="@color/txt_title"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:id="@+id/tv_des"
+        android:paddingTop="2dp"
+        android:text="四大大师四大大师四大大师四大大师四大大师四大大师四大大师四大大师"
+        android:textColor="@color/txt_small"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+             android:id="@+id/tv_author"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="作者:"
+            android:textColor="@color/txt_title"
+            android:textSize="16sp" />
+        
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:id="@+id/iv_des_arrow"
+            android:background="@drawable/arrow_down"/>
+    </LinearLayout>
+
+</LinearLayout>

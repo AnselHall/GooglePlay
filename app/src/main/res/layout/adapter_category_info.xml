@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="2dp"
+    android:clickable="false"
+    android:paddingBottom="2dp"
+    android:orientation="horizontal" >
+    
+    
+    <LinearLayout android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:clickable="true"
+        android:padding="10dp"
+        android:background="@drawable/selector_gridview_item"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <ImageView android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="fitXY"
+            android:id="@+id/iv_image1"
+            android:src="@drawable/ic_default"/>
+        
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:singleLine="true"
+            android:id="@+id/tv_name1"
+            android:text="呦呦呦，切克闹，煎饼果子来一套"/>
+        
+    </LinearLayout>
+    
+    
+    <LinearLayout android:layout_width="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:id="@+id/ll_info2"
+        android:padding="10dp"
+        android:background="@drawable/selector_gridview_item"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <ImageView android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="fitXY"
+             android:id="@+id/iv_image2"
+            android:src="@drawable/ic_default"/>
+        
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:singleLine="true"
+            android:id="@+id/tv_name2"
+            android:text="呦呦呦，切克闹，煎饼果子来一套"/>
+        
+    </LinearLayout>
+    
+    <LinearLayout android:layout_width="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="10dp"
+         android:id="@+id/ll_info3"
+        android:background="@drawable/selector_gridview_item"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <ImageView android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="fitXY"
+            android:id="@+id/iv_image3"
+            android:src="@drawable/ic_default"/>
+        
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:singleLine="true"
+            android:id="@+id/tv_name3"
+            android:text="呦呦呦，切克闹，煎饼果子来一套"/>
+        
+    </LinearLayout>
+    
+
+</LinearLayout>
